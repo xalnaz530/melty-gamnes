@@ -1,0 +1,63 @@
+{
+  "project": {
+    "title_draft": "Fish Ball League",
+    "tagline_draft": "Rocket League's boost-and-demo soccer, played on the water in How to Fish.",
+    "description_draft": "Play a solo 3v3 match against bots on the lake, with Rocket League's boost pads, demolitions and scoring rules.",
+    "players": "solo",
+    "multiplayer": false,
+    "first_version": "one human player and one bot team, one match, one lake"
+  },
+  "games": [
+    {"name": "How to Fish", "role": "primary", "slug": "TO_RESOLVE_via_search_games", "version": "UNVERIFIED", "engine": "UNVERIFIED - inspect install folder", "mod_route": "UNVERIFIED - check game_info and universal-modder mod-any-game"},
+    {"name": "Rocket League", "role": "companion", "slug": "TO_RESOLVE_via_search_games", "version": "UNVERIFIED", "use": "rules and feel referenced; any real assets read from {game:<slug>}, never copied", "risk_check": "game_info must be checked for anti-cheat/account flags; do not work around anti-cheat"}
+  ],
+  "sheets": {
+    "rules": {
+      "columns": ["id", "name", "source_game", "value", "status"],
+      "rows": [
+        ["match_format", "3v3 scoring", "rocket-league", "3 per team (1 human + 2 bots vs 3 bots, solo)", "unverified"],
+        ["boost_pads", "Boost pads", "rocket-league", "pickup refills boost, respawn timer TBD", "unverified"],
+        ["demolition", "Demolitions", "rocket-league", "contact at supersonic speed demolishes, respawn delay TBD", "unverified"],
+        ["scoring", "Goal scoring", "rocket-league", "ball over goal line = 1 point", "unverified"]
+      ]
+    },
+    "entities": {
+      "columns": ["id", "type", "team", "controlled_by", "status"],
+      "rows": [
+        ["player_1", "vehicle", "blue", "human", "unverified"],
+        ["bot_blue_1", "vehicle", "blue", "bot", "unverified"],
+        ["bot_blue_2", "vehicle", "blue", "bot", "unverified"],
+        ["bot_red_1", "vehicle", "red", "bot", "unverified"],
+        ["bot_red_2", "vehicle", "red", "bot", "unverified"],
+        ["bot_red_3", "vehicle", "red", "bot", "unverified"],
+        ["ball", "fish_ball", "none", "physics", "unverified"]
+      ]
+    },
+    "arena": {
+      "columns": ["id", "kind", "location", "refs", "status"],
+      "rows": [
+        ["lake_pitch", "water pitch", "How to Fish existing lake", "goal_blue, goal_red, boost_pads", "unverified"],
+        ["goal_blue", "goal", "one end of lake_pitch", "scoring", "unverified"],
+        ["goal_red", "goal", "other end of lake_pitch", "scoring", "unverified"]
+      ]
+    },
+    "hooks": {
+      "columns": ["id", "game_system", "purpose", "status"],
+      "rows": [
+        ["vehicle_control", "How to Fish boat/player movement", "drive a vehicle on water", "TO_FIND"],
+        ["ball_physics", "How to Fish physics/fish objects", "fish as the ball", "TO_FIND"],
+        ["match_start", "game launch/scene load", "start the match", "TO_FIND"],
+        ["hud", "How to Fish UI", "score and boost display", "TO_FIND"]
+      ]
+    }
+  },
+  "preflight_open_cells": [
+    "game slugs and versions for both games",
+    "How to Fish engine and mod route",
+    "all hooks marked TO_FIND",
+    "tuning values (respawn timers, boost amount)",
+    "credits, license and remix choice for the listing",
+    "real screenshot of the running build"
+  ],
+  "publish_notes": "Needs search_mashups/game_info/one_click_check on Melty, a tested release, and a real screenshot before publish."
+}
